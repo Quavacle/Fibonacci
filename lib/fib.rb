@@ -19,3 +19,10 @@ module Fibonacci
     end
   end  
 end
+
+require 'benchmark'
+num = 35
+Benchmark.bm do |x|
+  x.report("recursive_fib") { Fibonacci.recursive(num) }
+  x.report("iterative_fib")  { Fibonacci.iterative(num) }
+end
